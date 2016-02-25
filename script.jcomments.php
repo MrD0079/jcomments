@@ -84,11 +84,11 @@ class com_jcommentsInstallerScript
 			$data->plugins[] = array('name' => $name, 'group' => $group, 'result' => $result);
 		}
 
-		// Extract plugins for integration with 3rd party extensions
-		$source = JPATH_SITE . '/components/com_jcomments/plugins/plugins.zip';
-		$destination = JPATH_SITE . '/components/com_jcomments/plugins/';
-		JArchive::extract($source, $destination);
-		JFile::delete($source);
+		// Extract plugins for integration with 3rd party extensions, ADDED DIRECTLY IN FILE
+		// $source = JPATH_SITE . '/components/com_jcomments/plugins/plugins.zip';
+		// $destination = JPATH_SITE . '/components/com_jcomments/plugins/';
+		// JArchive::extract($source, $destination);
+		// JFile::delete($source);
 
 		// Execute database updates
 		$scripts = JFolder::files(JPATH_ROOT . '/administrator/components/com_jcomments/install/sql/updates', '\.sql',
