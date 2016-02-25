@@ -1,7 +1,7 @@
 <?php
 /**
  * JComments plugin for VirtueMart objects support
- *
+ * Fixed by Studio 42 , tested with Joomla 3.4.8
  * @version 2.0
  * @package JComments
  * @author Sergey M. Litvinov (smart@joomlatune.ru)
@@ -28,7 +28,7 @@ class jc_com_virtuemart extends JCommentsPlugin
 			VmConfig::loadConfig();
 
 			$db = JFactory::getDBO();
-			$db->setQuery('SELECT product_name, created_by FROM #__virtuemart_products_' . VMLANG . ' WHERE virtuemart_product_id =' . $id);
+			$db->setQuery('SELECT product_name, created_by FROM #__virtuemart_products_' . VMLANG . ' as l LEFT JOIN #__virtuemart_products as p ON p.virtuemart_product_id = l.virtuemart_product_id  WHERE p.virtuemart_product_id =' . $id);
 			$row = $db->loadObject();
 			
 			if (!empty($row)) {
@@ -37,7 +37,6 @@ class jc_com_virtuemart extends JCommentsPlugin
 
 				$info->title = $row->product_name;
 				$info->userid = $row->created_by;
-				$info->link = AllEventsHelperRoute::getEventRoute($id);
 				$info->link = JRoute::_('index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=' . $id . '&virtuemart_category_id=' . $categoryId);
 			}
 		}
