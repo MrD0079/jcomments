@@ -347,7 +347,7 @@ class plgContentJComments extends JPlugin
 		if ($context == 'com_content.article') {
 			require_once(JPATH_ROOT . '/components/com_jcomments/models/jcomments.php');
 
-			JCommentsModel::deleteComments((int)$table->id, 'com_content');
+			JCommentsModel::deleteComments((int)$data->id, 'com_content');
 
 			$db = JFactory::getDbo();
 			$query = $db->getQuery(true);

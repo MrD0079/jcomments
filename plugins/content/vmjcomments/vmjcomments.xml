@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+	<name>Virtuemart 3 - JComments Content Plugin</name>
+	<creationDate>25/02/2016</creationDate>
+	<author>Kohl Patrick</author>
+	<copyright>Copyright 2016 - Studio 42 France</copyright>
+	<authorEmail>contact@st42.fr</authorEmail>
+	<authorUrl></authorUrl>
+	<license>GNU/GPL</license>
+	<version>1.0</version>
+	<description>Virtuemart 2 - JComments Integration Plugin more info http://shop.st42.fr</description>
+	<files>
+		<filename plugin="vmjcomments">vmjcomments.php</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+	</files>
+	<config >
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field name="plugin_activated" type="list" default="1" label="PLG_VMJCOMMENTS_PLUGIN_ACTIVATED" description="PLG_VMJCOMMENTS_PLUGIN_ACTIVATED_DESC">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

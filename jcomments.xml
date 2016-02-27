@@ -203,6 +203,7 @@
 	
 	<plugins>
 		<plugin plugin="jcomments" group="content" />
+		<plugin plugin="vmjcomments" group="content" />
 		<plugin plugin="jcommentson" group="editors-xtd" />
 		<plugin plugin="jcommentsoff" group="editors-xtd" />
 		<plugin plugin="jcomments" group="search" />
