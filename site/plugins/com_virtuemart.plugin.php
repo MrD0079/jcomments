@@ -28,7 +28,7 @@ class jc_com_virtuemart extends JCommentsPlugin
 			VmConfig::loadConfig();
 
 			$db = JFactory::getDBO();
-			$db->setQuery('SELECT product_name, created_by FROM #__virtuemart_products_' . VMLANG . ' as l 
+			$db->setQuery('SELECT product_name, created_by, pc.virtuemart_category_id as cid FROM #__virtuemart_products_' . VMLANG . ' as l 
 				LEFT JOIN #__virtuemart_products as p ON p.virtuemart_product_id = l.virtuemart_product_id  
 				LEFT JOIN #__virtuemart_product_categories as pc ON pc.virtuemart_product_id = p.virtuemart_product_id  
 				WHERE p.virtuemart_product_id =' . $id);
@@ -37,7 +37,7 @@ class jc_com_virtuemart extends JCommentsPlugin
 			if (!empty($row)) {
 				$info->title = $row->product_name;
 				$info->userid = $row->created_by;
-				$info->link = JRoute::_('index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=' . $id . '&virtuemart_category_id=' . $categoryId);
+				$info->link = JRoute::_('index.php?option=com_virtuemart&view=productdetails&virtuemart_product_id=' . $id . '&virtuemart_category_id=' . $row->cid);
 			}
 		}
 
